@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src='jquery-1.11.3.min.js'></script>
+    <link rel='stylesheet' href='battleship-style.css'>
+    <script src="battleship-game.js"></script>
+    <title>battleship-game</title>
+</head>
+<body onload='ucitajMatrice()' class='setup more'>
+   <!-- <h1>Dobrodosli na igru</h1> -->
+  <!--  <button onclick='dohvatiMapu()'> Dohvati matrice</button>-->
+    <div class='container'>
+      <div class='row'>
+
+        <div class='col-sm-5 margina text-right'>
+          <button class='btn dugme' onclick='povratak()'>Pocetna</button>
+        </div>
+        <div class='col-sm-2 margina text-center'>
+          <h4 class='text-center'>Na potezu:</h4><p class='text-center igr' id='igrac'></p>
+        </div>
+        <div class='col-sm-5 margina text-left'>
+          <button class='btn dugme' onclick='podesavanja()'>Podesavanja igre</button>
+        </div>
+      </div>
+
+      <div class='row'>  
+        <div class='col-sm-5 text-left poravnaj' id='tabela1' >
+          <h3 class='text-center' id='igrac1'></h3>
+          <br>
+          <table align='left' width='450' height='450' border='5' class='tabela'>
+            <tr>
+                <td width='8%'></td>
+                <td height='5' width='9%' align='center'>A</td>
+                <td height='5' width='9%' align='center'>B</td>
+                <td height='5' width='9%' align='center'>C</td>
+                <td height='5' width='9%' align='center'>D</td>
+                <td height='5' width='9%' align='center'>E</td>
+                <td height='5' width='9%' align='center'>F</td>
+                <td height='5' width='9%' align='center'>G</td>
+                <td height='5' width='9%' align='center'>H</td>
+                <td height='5' width='9%' align='center'>I</td>
+                <td height='5' width='9%' align='center'>J</td>
+            </tr>
+            <tr>
+                <!--0. vrsta-->
+                <td width='4' align='center'>0</td>
+                <td id='100' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='101' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='102' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='103' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='104' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='105' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='106' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='107' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='108' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='109' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+            </tr>
+            <tr>
+                <!--1.vrsta-->
+                <td align='center'>1</td>
+                <td id='110' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='111' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='112' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='113' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='114' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='115' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='116' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='117' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='118' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='119' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--2. vrsta-->
+                <td align='center'>2</td>
+                <td id='120' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='121' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='122' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='123' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='124' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='125' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='126' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='127' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='128' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='129' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--3. vrsta-->
+                <td align='center'>3</td>
+                <td id='130' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='131' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='132'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='133' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='134' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='135' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='136' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='137' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='138' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='139' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--4. vrsta-->
+                <td align='center'>4</td>
+                <td id='140' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='141' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='142' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='143' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='144' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='145' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='146' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='147'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='148' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='149'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--5. vrsta-->
+                <td align='center'>5</td>
+                <td id='150' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='151' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='152' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='153' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='154' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='155' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='156' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='157' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='158' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='159' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!-- 6.vrsta-->
+                <td align='center'>6</td>
+                <td id='160' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='161' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='162' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='163' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='164' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='165' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='166' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='167' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='168' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='169' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--7. vrsta-->
+                <td align='center'>7</td>
+                <td id='170' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='171' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='172' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='173' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='174' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='175' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='176' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='177' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='178' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='179' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--8. vrsta-->
+                <td align='center'>8</td>
+                <td id='180' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='181' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='182' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='183' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='184' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='185' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='186' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='187' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='188' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='189' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--9. vrsta-->
+                <td align='center'>9</td>
+                <td id='190' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='191' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='192' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='193' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='194' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='195' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='196' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='197' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='198' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='199' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+        </table>
+        </div>
+        <div class='col-sm-2'>
+          <br>
+          <br>
+          <h5 class='text-center'>Pravila igre:</h5>
+          <p class='pravilo1'>1. Svaki od igraca na potezu, na svojoj tabli(tabli ispod svog imena) vidi svoje postavljene brodove i brodove koje mu je suparnicki igrac do sada potopio,kao i one koje je suparnicki igrac promasio.
+         Igrac na potezu na suparnickoj tabli pokusava da pogodi njegove postavljene brodove.</p>
+          <p class='pravilo1'>2. Ukoliko pogodi suparnicki brod, to polje na suparnickoj tabli se obelezava crvenom bojom, a taj igrac na potezu zadrzava pravo na sledeci potez.</p>
+          <p class='pravilo1'>3. Ukoliko igrac na potezu promasi brod, polje se obelezava znakom X i potez se prepusta suparnickom igracu.</p>
+          <p class='pravilo1'>4. Igrac koji prvi potopi sve suparnicke brodove je pobednik. </p>
+        </div>
+
+        <div class='col-sm-5 text-right'>
+          <h3 class='text-center' id='igrac2'></h3>
+          <br>
+          <table align='right' width='450' height='450' border='5' class='tabela' id='tabela2'>
+            <tr>
+                <td width='8%'></td>
+                <td height='5' width='9%' align='center'>A</td>
+                <td height='5' width='9%' align='center'>B</td>
+                <td height='5' width='9%' align='center'>C</td>
+                <td height='5' width='9%' align='center'>D</td>
+                <td height='5' width='9%' align='center'>E</td>
+                <td height='5' width='9%' align='center'>F</td>
+                <td height='5' width='9%' align='center'>G</td>
+                <td height='5' width='9%' align='center'>H</td>
+                <td height='5' width='9%' align='center'>I</td>
+                <td height='5' width='9%' align='center'>J</td>
+            </tr>
+            <tr>
+                <!--0. vrsta-->
+                <td width='5' align='center'>0</td>
+                <td id='200' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='201' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='202' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='203' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='204' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='205' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='206' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='207' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='208' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+                <td id='209' onmousedown='pocetna(this)' onmouseup="krajnja(this)" onclick='pritisni(this)' align='center'></td>
+            </tr>
+            <tr>
+                <!--1.vrsta-->
+                <td align='center'>1</td>
+                <td id='210' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='211' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='212' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='213' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='214' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='215' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='216' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='217' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='218' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='219' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--2. vrsta-->
+                <td align='center'>2</td>
+                <td id='220' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='221' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='222' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='223' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='224' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='225' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='226' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='227' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='228' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='229' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--3. vrsta-->
+                <td align='center'>3</td>
+                <td id='230' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='231' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='232'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='233' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='234' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='235' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='236' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='237' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='238' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='239' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--4. vrsta-->
+                <td align='center'>4</td>
+                <td id='240' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='241' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='242' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='243' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='244' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='245' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='246' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='247'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='248' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='249'onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--5. vrsta-->
+                <td align='center'>5</td>
+                <td id='250' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='251' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='252' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='253' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='254' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='255' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='256' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='257' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='258' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='259' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!-- 6.vrsta-->
+                <td align='center'>6</td>
+                <td id='260' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='261' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='262' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='263' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='264' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='265' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='266' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='267' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='268' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='269' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--7. vrsta-->
+                <td align='center'>7</td>
+                <td id='270' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='271' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='272' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='273' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='274' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='275' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='276' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='277' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='278' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='279' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--8. vrsta-->
+                <td align='center'>8</td>
+                <td id='280' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='281' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='282' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='283' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='284' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='285' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='286' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='287' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='288' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='289' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+            <tr>
+                <!--9. vrsta-->
+                <td align='center'>9</td>
+                <td id='290' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='291' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='292' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='293' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='294' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='295' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='296' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='297' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='298' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+                <td id='299' onclick='pritisni(this)' onmousedown='pocetna(this)' onmouseup="krajnja(this)" align='center'></td>
+            </tr>
+        </table>
+        </div>
+      </div>
+      <!--<div class='row'>
+          <div class='col-sm-5 text-center'>
+              <button class='btn dugme' onclick='igrac1_matrica()'>Moji postavljeni brodovi</button>
+              </div>
+          <div class='col-sm-2'></div>
+          <div class='col-sm-5 text-center'>
+              <button class='btn dugme' onclick='igrac2_matrica()'>Moji postavljeni brodovi</button>
+            </div>
+      </div> -->
+    </div>
+</body>
+</html>

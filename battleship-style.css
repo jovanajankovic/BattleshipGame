@@ -1,0 +1,150 @@
+
+.prijava{
+    width:400px;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    background: #fff;
+    padding: 20px;
+    margin:45px auto 45px;
+    /*box-shadow: 0 2px 7px #4387A1;*/
+    box-shadow: 0 4px 50px rgb(167, 103, 29);
+}
+
+.prijava h1{
+    color: rgb(32, 77, 95);
+    margin-bottom: 30px;
+}
+
+.input-box{
+    border-radius: 20px;
+    padding:8px;
+    margin-bottom: 15px;
+    width:90%;
+    border:2px solid rgb(34, 73, 88);
+}
+
+button{
+    color: white;
+    width:100%;
+    padding:10px;
+    font-size: 15px;
+    margin:10px 0;
+    border:none;
+    outline:none;
+    background-color: rgb(32, 77, 95);
+    border-radius: 30px;
+}
+
+.dugme{
+    background-color:  rgb(179, 18, 18);
+    color: white;
+    width:50%;
+    margin:10px 0;
+    border-radius: 30px;
+}
+
+.span{
+    color:red;
+}
+
+.poravnanje{
+    margin-top: 65px;
+}
+
+.brodovi{
+     font-size: 25px;
+   /*  color: rgb(76, 73, 77);*/
+    color:  rgb(20, 58, 73);
+}
+
+h1{
+    color: rgb(20, 58, 73);
+}
+
+/*body {
+    background-image: url(brod4.jpg);
+    background-size: cover;
+    background-position: center;
+    height:550px;
+}*/
+
+.pozadina{
+    background-image: url(battleship-assets/brod4.jpg);
+    background-size: cover;
+    background-position: center;
+	background-repeat:no-repeat;
+    height:550px;
+    margin:0px;
+}
+
+/*.more{
+    background-image: url(brod4.jpg);
+    background-size: cover;
+    background-position: center;
+    height:550px;
+    margin:0px;
+
+}*/
+
+.setup{
+   /* background-color: rgb(176, 213, 228);;*/
+   background-color: rgb(222, 238, 243);
+}
+
+.tabela{
+    background-color: white;
+}
+
+.pravilo{
+    margin:3px;
+    font-size: 15px;
+    font-weight: bold;
+    color:rgb(20, 58, 73);
+}
+
+.pravilo1{
+    margin:3px;
+    font-size: 11px;
+    font-weight: bold;
+    color:rgb(20, 58, 73);
+}
+
+.naslov_pravilo{
+    margin-bottom: 12px;
+    color:  rgb(20, 58, 73);
+}
+
+.igr{
+    font-size: 25px;
+}
+
+#igrac{
+    color:red;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.margina{
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+#igrac1, #igrac2, h4{
+    color:rgb(20, 58, 73);
+}
+
+/*
+#tabela1{
+   pointer-events none ili visible
+}
+
+*/
+
+.player{
+    margin-top: 20px;
+}
+
+.playerpar{
+    font-size: 25px;
+    font-weight: bold;
+}
